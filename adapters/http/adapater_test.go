@@ -1,14 +1,12 @@
 package http
 
 import (
+	"bytes"
+	"encoding/json"
 	"net/http"
 	"net/http/httptest"
 	"os"
 	"testing"
-
-	"bytes"
-
-	"encoding/json"
 
 	"gitlab.com/zenport.io/go-assignment/engine"
 	"gitlab.com/zenport.io/go-assignment/providers/database"
