@@ -19,9 +19,10 @@ var (
 func TestMain(m *testing.M) {
 	provider := database.NewProvider()
 	// todo: init database (ex: create table, clear previous data, etc.)
+	// Using inMemory database, for tests is always clean
 	e := engine.NewEngine(provider)
 
-	router = nil // todo: add your router
+    router =  NewHTTPAdapter(e).Server.Handler
 
 	code := m.Run()
 	provider.Close()

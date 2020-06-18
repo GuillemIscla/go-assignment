@@ -4,14 +4,15 @@ import "gitlab.com/zenport.io/go-assignment/domain"
 
 type Engine interface {
 	GetKnight(ID string) (*domain.Knight, error)
-	ListKnights() []*domain.Knight
+	ListKnights() []domain.Knight
 	Fight(fighter1ID string, fighter2ID string) domain.Fighter
+	Save(knight domain.Knight)
 }
 
 type KnightRepository interface {
 	Find(ID string) *domain.Knight
-	FindAll() []*domain.Knight
-	Save(knight *domain.Knight)
+	FindAll() []domain.Knight
+	Save(knight domain.Knight)
 }
 
 type DatabaseProvider interface {
